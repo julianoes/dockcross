@@ -19,8 +19,11 @@ RUN apt-get update --yes && apt-get install --no-install-recommends --yes \
   gawk \
   gperf \
   help2man \
+  libtool-bin \
   python-dev \
+  python3-dev \
   texinfo \
+  unzip \
 && apt-get clean --yes
 
 ENV XCC_PREFIX=/usr/xcc

@@ -1,7 +1,7 @@
 FROM dockcross/base:latest
 MAINTAINER Matt McCormick "matt.mccormick@kitware.com"
 
-# This is for 32-bit ARMv7 Linux
+# This is for 32-bit ARMv6 Linux
 #include "common.crosstool"
 
 # The cross-compiling emulator
@@ -12,8 +12,8 @@ RUN apt-get update \
 && apt-get clean --yes
 
 
-# The CROSS_TRIPLE is a configured alias of the "aarch64-unknown-linux-gnueabihf" target.
-ENV CROSS_TRIPLE armv7-unknown-linux-gnueabihf
+# The CROSS_TRIPLE is a configured alias of the "aarch64-unknown-linux-gnueabi" target.
+ENV CROSS_TRIPLE armv6-unknown-linux-gnueabi
 ENV CROSS_ROOT ${XCC_PREFIX}/${CROSS_TRIPLE}
 ENV AS=${CROSS_ROOT}/bin/${CROSS_TRIPLE}-as \
     AR=${CROSS_ROOT}/bin/${CROSS_TRIPLE}-ar \
@@ -38,7 +38,7 @@ ENV ARCH arm
 
 # Build-time metadata as defined at http://label-schema.org
 ARG BUILD_DATE
-ARG IMAGE=dockcross/linux-armv7
+ARG IMAGE=dockcross/linux-armv6
 ARG VERSION=latest
 ARG VCS_REF
 ARG VCS_URL
